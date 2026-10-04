@@ -1,0 +1,27 @@
+{
+  "name": "proj_individual_lp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0-bife/proj_individual_lp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0-bife/proj_individual_lp/issues"
+  },
+  "homepage": "https://github.com/0-bife/proj_individual_lp#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
