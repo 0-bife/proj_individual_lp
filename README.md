@@ -32,4 +32,5 @@
 |adicionarDespesa|Passou|Solicitei que fossem incluídas validações na função para todos os atributos||
 |removerDespesa|Passou|Não alterei o código gerado, cumpre as necessidades||
 |despesasDaCategoria|Não passou no primeiro porque eu tinha escrito o teste errado, para funcionar de forma que ia dar erro quando era para somente mostrar array vazio|Alterei teste e pedi para refazer a implementação|
+|totalDespesas||o vitest deu que o esperado era undefined porém recebeu [Function totalDespesas], acho que está correto|
 
