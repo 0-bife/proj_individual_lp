@@ -8,3 +8,4 @@ export type despesa = {
 };
 
 export const CATEGORIA = ["alimentacao", "transporte", "lazer", "moradia"] as const;
+

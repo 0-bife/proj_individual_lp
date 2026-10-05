@@ -21,3 +21,10 @@ export function adicionarDespesa(despesas: despesa[], nova: despesa): despesa[] 
     }
     return [...despesas, nova];
 }
+
+export function removerDespesa(despesas: despesa[], id: number): despesa[] {
+    if (!despesas.some((despesa) => despesa.id_Despesa === id)) {
+        return despesas;
+    }
+    return despesas.filter((despesa) => despesa.id_Despesa !== id);
+}
