@@ -30,5 +30,5 @@ export function removerDespesa(despesas: despesa[], id: number): despesa[] {
 }
 
 export function despesasDaCategoria(despesa: despesa[], categoria: string): despesa[] {
-      throw new Error("Não implementado")
+    return despesa.filter((item) => item.categoria === categoria);
 }
