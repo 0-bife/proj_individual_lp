@@ -28,3 +28,7 @@ export function removerDespesa(despesas: despesa[], id: number): despesa[] {
     }
     return despesas.filter((despesa) => despesa.id_Despesa !== id);
 }
+
+export function despesasDaCategoria(despesa: despesa[], categoria: string): despesa[] {
+      throw new Error("Não implementado")
+}

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { adicionarDespesa } from "../src/despesas.ts"
 import { despesa } from "../src/tipos.ts";
 import { removerDespesa } from "../src/despesas.ts"
+import { despesasDaCategoria } from "../src/despesas.ts";
 
 describe ("adicionarDespesa", () => {
     it("adiciona uma nova despesa seguindo o tipo despesa", () => {
@@ -48,7 +49,7 @@ describe ("adicionarDespesa", () => {
         expect(despesaOriginal).toEqual([]); 
     })});
 
-    //teste para função de remover despesas
+    //testes para função de remover despesas
 
 describe ("removerDespesa", () => {
     it("remove corretamente a despesa referente ao id solicitado, sem alterar as outras", () => {
@@ -98,3 +99,55 @@ describe ("removerDespesa", () => {
         const listaResultado = removerDespesa(listaPopuladaC2, 9);
         expect(listaResultado).toEqual(listaPopuladaC2);
     })});
+
+    //testes da função para implementar: despesasDaCategoria
+
+describe ("despesasDaCategoria", () => {
+    it("retorna somente as despesas com uma categoria passada", () => {
+        const despesasIniciais: despesa[] = [];
+        const despesaAdd1: despesa = ({
+            id_Despesa: 1,
+            descricao: "Conta de Água",
+            valor: 104.90,
+            categoria: "moradia",
+            mes: 10,
+        });
+        const despesaAdd2: despesa = ({
+            id_Despesa: 2,
+            descricao: "aluguel",
+            valor: 1900.00,
+            categoria: "moradia",
+            mes: 11,
+        });
+        const despesaAdd3: despesa = ({
+            id_Despesa: 3,
+            descricao: "compras no shopping",
+            valor: 658.00,
+            categoria: "lazer",
+            mes: 11,
+        });
+        const listaPopuladaC1 = adicionarDespesa([], despesaAdd1);
+        const listaPopuladaC2 = adicionarDespesa(listaPopuladaC1, despesaAdd2);
+        const listaPopuladaC3 = adicionarDespesa(listaPopuladaC2, despesaAdd3);
+        const listaFiltrada = despesasDaCategoria(listaPopuladaC3, "moradia");
+        expect(listaFiltrada).toEqual(listaPopuladaC2);
+    
+    })
+    it("se uma categoria não existe, retornar array vazio", () => {
+        const despesasIniciais: despesa[] = [];
+        const despesaAdd1: despesa = ({
+            id_Despesa: 1,
+            descricao: "Conta de Água",
+            valor: 104.90,
+            categoria: "moradia",
+            mes: 10,
+        });
+        const listaPopuladaC1 = adicionarDespesa([], despesaAdd1);
+        const listaFiltrada = despesasDaCategoria(listaPopuladaC1, "saúde");
+        expect(listaFiltrada).toEqual([]);
+
+    })
+});
+
+
+    
