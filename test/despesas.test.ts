@@ -4,6 +4,7 @@ import { despesa } from "../src/tipos.ts";
 import { removerDespesa } from "../src/despesas.ts"
 import { despesasDaCategoria } from "../src/despesas.ts";
 import { totalDespesas } from "../src/despesas.ts";
+import { maiorDespesa } from "../src/despesas.ts";
 
 describe ("adicionarDespesa", () => {
     it("adiciona uma nova despesa seguindo o tipo despesa", () => {
@@ -185,9 +186,51 @@ describe ("totalDespesas", () => {
         const listaPopulada = [despesaAdd1, despesaAdd2, despesaAdd3, despesaAdd4]
         expect(totalDespesas(listaPopulada)).toBe(4562.9);
     })
+    it("lista vazia exibe saída 0", () => {
+        const despesasSemInstancias : despesa[] = [];
+        expect(totalDespesas(despesasSemInstancias)).toBe(0);
+    })
+});
+    
+
+//testes para a função de mostrar o maior gasto
+
+describe ("maiorDespesa", () => {
+    it("Exibe o valor de maior gasto dentro de despesas", () => {
+        it("Exibe o total da soma de despesas da lista", () => {
+        const despesaAdd1: despesa = ({
+            id_Despesa: 1,
+            descricao: "Conta de Água",
+            valor: 104.90,
+            categoria: "moradia",
+            mes: 10,
+        });
+        const despesaAdd2: despesa = ({
+            id_Despesa: 2,
+            descricao: "aluguel",
+            valor: 1910.00,
+            categoria: "moradia",
+            mes: 10,
+        });
+        const despesaAdd3: despesa = ({
+            id_Despesa: 3,
+            descricao: "compras no shopping",
+            valor: 658.00,
+            categoria: "lazer",
+            mes: 11,
+        });
+        const despesaAdd4: despesa = ({
+            id_Despesa: 4,
+            descricao: "aluguel",
+            valor: 1900.00,
+            categoria: "moradia",
+            mes: 11,
+        });
+        const listaPopulada = [despesaAdd1, despesaAdd2, despesaAdd3, despesaAdd4]
+        expect(maiorDespesa(listaPopulada)).toBe(1910);
+    })
     it("lista vazia exibe saída undefined", () => {
         const despesasSemInstancias : despesa[] = [];
         expect(totalDespesas(despesasSemInstancias)).toBe(undefined);
     })
-});
-    
+    })});
