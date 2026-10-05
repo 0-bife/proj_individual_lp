@@ -30,4 +30,6 @@
 |Função|Passou no teste|Alteração|OBS|
 |------|----------------|---------|---|
 |adicionarDespesa|Passou|Solicitei que fossem incluídas validações na função para todos os atributos||
+|removerDespesa|Passou|Não alterei o código gerado, cumpre as necessidades||
+
 
