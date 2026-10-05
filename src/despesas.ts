@@ -33,6 +33,9 @@ export function despesasDaCategoria(despesa: despesa[], categoria: string): desp
     return despesa.filter((item) => item.categoria === categoria);
 }
 
-export function totalDespesas(despesas: despesa[]): number {
-      throw new Error("Não implementado ainda");
+export function totalDespesas(despesas: despesa[]): number | undefined {
+    if (despesas.length === 0) {
+        return undefined;
+    }
+    return despesas.reduce((total, despesa) => total + despesa.valor, 0);
 }

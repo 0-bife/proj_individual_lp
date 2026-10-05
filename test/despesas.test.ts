@@ -183,11 +183,11 @@ describe ("totalDespesas", () => {
             mes: 11,
         });
         const listaPopulada = [despesaAdd1, despesaAdd2, despesaAdd3, despesaAdd4]
-        expect(totalDespesas).toBe(4562.9);
+        expect(totalDespesas(listaPopulada)).toBe(4562.9);
     })
     it("lista vazia exibe saída undefined", () => {
         const despesasSemInstancias : despesa[] = [];
-        expect(totalDespesas).toBe(undefined);
+        expect(totalDespesas(despesasSemInstancias)).toBe(undefined);
     })
 });
     
