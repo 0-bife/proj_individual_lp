@@ -29,4 +29,20 @@ describe ("adicionarDespesa", () => {
                 mes: 10,
             });
         }).toThrow(); 
+    });
+
+    it("não deve alterar o array original de despesas", () => {
+        const despesaOriginal: despesa[] = [];
+        const novaDespesa: despesa = {
+            id_Despesa: 1,
+            descricao: "Café",
+            valor: 10.00,
+            categoria: "alimentacao",
+            mes: 10
+        };
+
+        const despesaAtualizada = adicionarDespesa(despesaOriginal, novaDespesa);
+
+        expect(despesaOriginal).not.toBe(despesaAtualizada); 
+        expect(despesaOriginal).toEqual([]); 
     })});
