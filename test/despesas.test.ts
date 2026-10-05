@@ -11,7 +11,7 @@ describe ("adicionarDespesa", () => {
             descricao: "mcDonalds",
             valor: 62.90,
             categoria: "alimentacao",
-            mes: "10",
+            mes: 10,
             obs: "devia ter gasto menos"
         });
         
@@ -26,7 +26,7 @@ describe ("adicionarDespesa", () => {
                 descricao: "etanol",
                 valor: 0,
                 categoria: "transporte",
-                mes: "10",
+                mes: 10,
             });
         }).toThrow(); 
     })});
