@@ -40,6 +40,9 @@ export function totalDespesas(despesas: despesa[]): number | 0 {
     return despesas.reduce((total, despesa) => total + despesa.valor, 0);
 }
 
-export function maiorDespesa(despesas: despesa[]): despesa[] | undefined {
-      throw new Error ("Não implementada ainda");
+export function maiorDespesa(despesas: despesa[]): number | undefined {
+    if (despesas.length === 0) {
+        return undefined;
+    }
+    return Math.max(...despesas.map((despesa) => despesa.valor));
 }

@@ -196,8 +196,7 @@ describe ("totalDespesas", () => {
 //testes para a função de mostrar o maior gasto
 
 describe ("maiorDespesa", () => {
-    it("Exibe o valor de maior gasto dentro de despesas", () => {
-        it("Exibe o total da soma de despesas da lista", () => {
+    it("Exibe a maior entre as despesas da lista", () => {
         const despesaAdd1: despesa = ({
             id_Despesa: 1,
             descricao: "Conta de Água",
@@ -231,6 +230,5 @@ describe ("maiorDespesa", () => {
     })
     it("lista vazia exibe saída undefined", () => {
         const despesasSemInstancias : despesa[] = [];
-        expect(totalDespesas(despesasSemInstancias)).toBe(undefined);
-    })
+        expect(maiorDespesa(despesasSemInstancias)).toBe(undefined);
     })});
