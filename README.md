@@ -39,3 +39,11 @@
 |dedscricaoCategoria|Passou|código foi sem a condição para usar switch, refeito com a condição, testado ok||
 |matrizcategoriaMes|Não passou|preciso corrigir o teste, como a saída é uma matriz, preciso que se não haja despesas, a saída seja uma matriz, com zeros apenas|Tenho que pesquisar como seria. Pesquisei e conclui que posso somar simplesmente todas as entradas, 0x0 é 0.Não está dando certo...
 |formatarRelatoriio|
+
+### Explicando arquivos de config
+
+- package.json, tsconfig.json, .gitignore
+  -package.json: define as propriedades básicas do projeto, nome, pagina, dependencias.
+  -package-lock.json: define todos os detalhes das dependências para que não haja comflito de versões executando em ambientes diferentes
+  -tsconfig.json: configurações do typescript, define propriedades como o caminho dos arquivos source, test, a saída /dist, a opção strict (que aumenta a severidade com que o ts verifica possíveis erros de tipo)
+  -.gitignore, deve conter todas as pastas e arquivos que não devem ser versionadas, seja por economia de espaço e eficiencia como manter o node_modules fora e credenciais, informações de ambiente e dados sensíveis.
