@@ -64,12 +64,7 @@ describe("gerarRelatorio", () => {
         ];
 
         const imprimirRelatorio = vi.spyOn(console, "log").mockImplementation(() => {});
-        let relatorioExemplo: string;
-        try {
-            relatorioExemplo = gerarRelatorio(despesasExemplo);
-        } finally {
-            imprimirRelatorio.mockRestore();
-        }
+        const relatorioExemplo = gerarRelatorio(despesasExemplo);
 
         expect(relatorioExemplo).toContain("RELATÓRIO DE DESPESAS");
         expect(relatorioExemplo).toContain("TOTAL GERAL:");
@@ -77,5 +72,6 @@ describe("gerarRelatorio", () => {
         expect(relatorioExemplo).toContain("MAIOR DESPESA:");
         expect(relatorioExemplo).toContain("1900.00");
         expect(imprimirRelatorio).toHaveBeenCalledWith(relatorioExemplo);
+        imprimirRelatorio.mockRestore();
     });
 });
