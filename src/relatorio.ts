@@ -45,3 +45,39 @@ export function matrizCategoriaMes(despesas: despesa[]): number[][] {
 
     return matriz;
 }
+
+export function formatarRelatorio(despesas: despesa[]): string {
+    const matriz = matrizCategoriaMes(despesas);
+    const linhas: string[] = [
+        "RELATÓRIO DE DESPESAS".toUpperCase(),
+        "",
+        `${"CATEGORIA".padEnd(20)}${"TOTAL ANUAL".padStart(15)}`,
+    ];
+    let totalGeral = 0;
+    let maiorDespesa = 0;
+
+    for (let linha = 0; linha < CATEGORIA.length; linha++) {
+        let totalCategoria = 0;
+        for (let mes = 0; mes < 12; mes++) {
+            totalCategoria += matriz[linha][mes];
+        }
+
+        totalGeral += totalCategoria;
+        const nomeCategoria = descricaoCategoria(CATEGORIA[linha]) ?? CATEGORIA[linha];
+        linhas.push(
+            `${nomeCategoria.padEnd(20)}R$ ${totalCategoria.toFixed(2).padStart(12)}`,
+        );
+    }
+
+    for (let i = 0; i < despesas.length; i++) {
+        if (despesas[i].valor > maiorDespesa) {
+            maiorDespesa = despesas[i].valor;
+        }
+    }
+
+    linhas.push("");
+    linhas.push(`${"TOTAL GERAL:".padEnd(20)}R$ ${totalGeral.toFixed(2).padStart(12)}`);
+    linhas.push(`${"MAIOR DESPESA:".padEnd(20)}R$ ${maiorDespesa.toFixed(2).padStart(12)}`);
+
+    return linhas.join("\n");
+}

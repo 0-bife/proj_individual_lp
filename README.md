@@ -38,4 +38,4 @@
 |---|---|---|---|
 |dedscricaoCategoria|Passou|código foi sem a condição para usar switch, refeito com a condição, testado ok||
 |matrizcategoriaMes|Não passou|preciso corrigir o teste, como a saída é uma matriz, preciso que se não haja despesas, a saída seja uma matriz, com zeros apenas|Tenho que pesquisar como seria. Pesquisei e conclui que posso somar simplesmente todas as entradas, 0x0 é 0.Não está dando certo...
-
+|formatarRelatoriio|

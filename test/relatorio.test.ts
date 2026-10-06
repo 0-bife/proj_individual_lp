@@ -3,7 +3,7 @@ import { CATEGORIA, despesa } from "../src/tipos.ts";
 import { descricaoCategoria } from "../src/relatorio.ts"
 import { matrizCategoriaMes } from "../src/relatorio.ts"
 
-
+import { formatarRelatorio } from "../src/relatorio.ts"
 
 describe("descricaoCategoria", () => {
     it("Retorna o nome de exibição da categoria", () => {
@@ -65,5 +65,41 @@ describe("matrizCategoriaMes", () => {
             }
         }
         expect(somaTotal).toBe(0);
+    });
+});
+
+describe("formatarRelatorio", () => {
+    it("Retorna o texto do relatório: título em maiúsculas, uma linha por categoria com o total do ano, colunas alinhadas, e ao final o total geral e a maior despesa", () => {
+        const despesa1: despesa = {
+            id_Despesa: 1,
+            descricao: "Aluguel",
+            valor: 1900.00,
+            categoria: "moradia",
+            mes: 10,
+        };
+        const despesa2: despesa = {
+            id_Despesa: 2,
+            descricao: "Cinema",
+            valor: 100.00,
+            categoria: "lazer",
+            mes: 5,
+        };
+
+        const relatorio = formatarRelatorio([despesa1, despesa2]);
+
+        expect(relatorio).toContain("RELATÓRIO DE DESPESAS");
+        expect(relatorio).toContain("TOTAL GERAL:");
+        expect(relatorio).toContain("2000.00");
+        expect(relatorio).toContain("MAIOR DESPESA:");
+        expect(relatorio).toContain("1900.00");
+    });
+
+    it("Retorna um relatorio com os titulos porem valores zerados caso o array esteja vazio", () => {
+        const relatorio = formatarRelatorio([]);
+
+        expect(relatorio).toContain("RELATÓRIO DE DESPESAS");
+        expect(relatorio).toContain("TOTAL GERAL:");
+        expect(relatorio).toContain("0.00");
+        expect(relatorio).toContain("MAIOR DESPESA:");
     });
 });
