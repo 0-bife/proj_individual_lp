@@ -1,6 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { CATEGORIA, despesa } from "../src/tipos.ts";
-import { formatarRelatorio } from "../src/relatorio.ts"
+import { describe, expect, it, vi } from "vitest";
+import { despesa } from "../src/tipos.ts";
 import { gerarRelatorio } from "../src/index.ts"
 
 describe("gerarRelatorio", () => {
@@ -64,12 +63,19 @@ describe("gerarRelatorio", () => {
             }
         ];
 
-        const relatorioExemplo = formatarRelatorio(despesasExemplo);
+        const imprimirRelatorio = vi.spyOn(console, "log").mockImplementation(() => {});
+        let relatorioExemplo: string;
+        try {
+            relatorioExemplo = gerarRelatorio(despesasExemplo);
+        } finally {
+            imprimirRelatorio.mockRestore();
+        }
 
         expect(relatorioExemplo).toContain("RELATÓRIO DE DESPESAS");
         expect(relatorioExemplo).toContain("TOTAL GERAL:");
-        expect(relatorioExemplo).toContain("3376.8");
+        expect(relatorioExemplo).toContain("3376.80");
         expect(relatorioExemplo).toContain("MAIOR DESPESA:");
         expect(relatorioExemplo).toContain("1900.00");
+        expect(imprimirRelatorio).toHaveBeenCalledWith(relatorioExemplo);
     });
 });
