@@ -15,4 +15,10 @@ export function descricaoCategoria(categoria: string | undefined): string | unde
         default:
             return undefined;
     }
+};
+
+export function matrizCategoriaMes(despesas): number[][] {
+    throw new Error("Não implementado ainda");
+    
+
 }
