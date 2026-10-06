@@ -1,6 +1,18 @@
-import { CATEGORIA, despesa } from "./tipos.js";
-
-export function descricaoCategoria(categoria: string): string {
-    throw new Error ("Ainda não implementado");   
-
+export function descricaoCategoria(categoria: string | undefined): string | undefined {
+    switch (categoria) {
+        case "alimentacao":
+        case "Alimentação":
+            return "Alimentação";
+        case "transporte":
+        case "Transporte":
+            return "Transporte";
+        case "lazer":
+        case "Lazer":
+            return "Lazer";
+        case "moradia":
+        case "Moradia":
+            return "Moradia";
+        default:
+            return undefined;
+    }
 }

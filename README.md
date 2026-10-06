@@ -35,4 +35,7 @@
 |totalDespesas|Não Passou no primeiro|o vitest deu que o esperado era undefined porém recebeu [Function totalDespesas], acho que está correto|
 |totalDespesas|Passou| o Código de implementação que a IA criou está cobrindo as exigências| eu tinha passado a função dentro do inspect sem passar a váriavel, por isso tinha dado erro|
 |maiorDespesa|Passou| código de implementação que a IA gerou está cobrindo as exigências, aceitei| surgiu a dúvida, se no inicio coloquei no teste para garantir que nenhuma fução mexa no array original, tenho que repetir em todos os testes?|
+|---|---|---|---|
+|dedscricaoCategoria|Passou|código foi sem a condição para usar switch, refeito com a condição, testado ok||
+
 
