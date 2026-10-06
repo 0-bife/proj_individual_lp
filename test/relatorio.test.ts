@@ -103,3 +103,4 @@ describe("formatarRelatorio", () => {
         expect(relatorio).toContain("MAIOR DESPESA:");
     });
 });
+
