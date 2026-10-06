@@ -48,18 +48,22 @@ describe("matrizCategoriaMes", () => {
                 });
             const listaPopulada = [despesaAdd1, despesaAdd2, despesaAdd3, despesaAdd4]
             const matriz = matrizCategoriaMes(listaPopulada);
-            expect(matrizCategoriaMes(listaPopulada)).toBe(12);
             expect(matriz.length).toBe(CATEGORIA.length);
-            expect(matriz[0][9]).toBe(2004.90);
-            expect(matriz[0][9]).toBe(2004.90);
+            expect(matriz[3][9]).toBe(2004.90);
             expect(matriz[2][10]).toBe(658.00);
 
-
-                
     });
-    it("Caso de borda para tabela vazia", () => { //não consegui pensar em nada diferente :(
-        const despesasVazias: despesa[] = [];
-        expect(matrizCategoriaMes(despesasVazias)).toBe(0);
+    
+    it("deve retornar uma matriz com todas as posições zeradas quando a lista de despesas estiver vazia", () => {
+        const matriz = matrizCategoriaMes([]);
+        expect(matriz.length).toBe(CATEGORIA.length);
 
+        let somaTotal = 0;
+        for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+                somaTotal += matriz[i][j];
+            }
+        }
+        expect(somaTotal).toBe(0);
     });
 });

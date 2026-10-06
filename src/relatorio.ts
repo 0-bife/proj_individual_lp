@@ -29,11 +29,15 @@ export function matrizCategoriaMes(despesas: despesa[]): number[][] {
         }
     }
 
+
     for (let i = 0; i < despesas.length; i++) {
         const despesaAtual = despesas[i];
+
         for (let linha = 0; linha < CATEGORIA.length; linha++) {
             if (despesaAtual.categoria === CATEGORIA[linha]) {
-                matriz[linha][despesaAtual.mes - 1] += despesaAtual.valor;
+                if (despesaAtual.mes >= 1 && despesaAtual.mes <= 12) {
+                    matriz[linha][despesaAtual.mes - 1] += despesaAtual.valor;
+                }
                 break;
             }
         }
