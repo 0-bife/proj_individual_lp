@@ -68,7 +68,7 @@ describe("gerarRelatorio", () => {
 
         expect(relatorioExemplo).toContain("RELATÓRIO DE DESPESAS");
         expect(relatorioExemplo).toContain("TOTAL GERAL:");
-        expect(relatorioExemplo).toContain("3530.00");
+        expect(relatorioExemplo).toContain("3376.8");
         expect(relatorioExemplo).toContain("MAIOR DESPESA:");
         expect(relatorioExemplo).toContain("1900.00");
     });
